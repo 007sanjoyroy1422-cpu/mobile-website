@@ -1,12 +1,21 @@
 import React from 'react'
+import mobiles from './data/mobiles'
+import MobileCard from './components/MobileCard'
 
 export default function App() {
   return (
-    <div style={{ fontFamily: 'sans-serif', padding: '20px' }}>
-      <h1 style={{ textAlign: 'center' }}>📱 Mobile Directory</h1>
-      <p style={{ textAlign: 'center' }}>
-        This is the base app. Next we will connect a phone API to show A–Z phone details.
-      </p>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1 style={{ textAlign: 'center' }}>📱 All Mobile Details</h1>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gap: '15px',
+        marginTop: '20px'
+      }}>
+        {mobiles.map((mobile) => (
+          <MobileCard key={mobile.id} mobile={mobile} />
+        ))}
+      </div>
     </div>
   )
 }
